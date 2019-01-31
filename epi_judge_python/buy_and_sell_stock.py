@@ -1,22 +1,6 @@
 from test_framework import generic_test
 
-"""
-<2,4,5,3>
- l h
-"""
-
 def buy_and_sell_stock_once(prices):
-    # low = [prices[0], 0]
-    # high = [prices[1], 0]
-
-    # for i, n in enumerate(prices):
-    #     if n < low[0] and i < high[1]:
-    #         low[0], low[1] = n, i
-    #     if n > high[0] and i > low[1]:
-    #         high[0], high[1] = n, i
-        
-
-    # return high[0] - low[0]
     if not prices:
         return 0.0
     low = prices[0]
