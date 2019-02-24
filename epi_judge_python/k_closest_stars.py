@@ -25,10 +25,32 @@ class Star:
     def __eq__(self, rhs):
         return math.isclose(self.distance, rhs.distance)
 
-
+import heapq
 def find_closest_k_stars(stars, k):
     # TODO - you fill in here.
-    return []
+    # heap for this since it's k closest, we have distance 
+    # compute distances, store in an array (O(N)), sort (nlogn)
+    # heap O(nlogk) max heap (closest, or the smallest distance)
+    # assume euclidean distance, distance fn is already given
+    # heapq library, -
+    # max_heap = []
+    # # first itialize the heap with k elements
+    # stars_iter = iter(stars)
+    # n = len(stars)
+    # for _ in range(k):
+    #     star = next(stars_iter, None)
+    #     heapq.heappush(max_heap, (-1*star.distance, star))
+    # for _ in range(n-k):
+    #     star = next(stars_iter, None)
+    #     heapq.heappushpop(max_heap, (-1*star.distance, star))
+    # for i in range(k):
+    #     max_heap[i] = max_heap[i][1]
+    max_heap = []
+    for star in stars:
+        heapq.heappush(max_heap, (-star.distance, star))
+        if len(max_heap) > k:
+            heapq.heappop(max_heap)
+    return [x[1] for x in heapq.nlargest(k, max_heap)]
 
 
 def comp(expected_output, output):

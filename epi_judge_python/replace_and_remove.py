@@ -6,7 +6,16 @@ from test_framework.test_utils import enable_executor_hook
 
 def replace_and_remove(size, s):
     # TODO - you fill in here.
-    return 0
+    count_a = 0
+    count_b = 0
+    for i in s:
+        if i == "a":
+            count_a += 1
+        elif i == "b":
+            count_b += 1
+    
+    
+    return s
 
 
 @enable_executor_hook

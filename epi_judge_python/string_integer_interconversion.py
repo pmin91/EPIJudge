@@ -4,12 +4,13 @@ from test_framework.test_failure import TestFailure
 
 def int_to_string(x):
     # TODO - you fill in here.
+
     return ''
 
-
+from functools import reduce
 def string_to_int(s):
     # TODO - you fill in here.
-    return 0
+    return reduce(lambda x, y: x, s.split)
 
 
 def wrapper(x, s):
